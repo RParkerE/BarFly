@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Project_Icy_Olympus.Models"
+             xmlns:viewmodels="clr-namespace:Project_Icy_Olympus.ViewModels"
+             x:DataType="viewmodels:SignUpPageViewModel"
+             x:Class="Project_Icy_Olympus.SignUpPage"
+             Title="SignUpPage">
+    <StackLayout VerticalOptions="Center" Margin="20">
+        <Label Text="Sign Up" HorizontalOptions="Center" TextColor="SkyBlue" FontSize="35" Margin="0, 20" />
+        <Entry Placeholder="Email" Keyboard="Email" Text="{Binding UserEmail}" />
+        <Entry Placeholder="Password" IsPassword="True" Text="{Binding UserPassword}" />
+        <Button Text="Sign Up" Command="{Binding RegisterCommand}" Margin="60, 40" BackgroundColor="SkyBlue" TextColor="White" />
+            <Button Text="Already A User? Login" Command="{Binding LoginCommand}" Margin="60, 40" BackgroundColor="SkyBlue" TextColor="White" />
+    </StackLayout>
+</ContentPage>

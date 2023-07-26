@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+             x:Class="Project_Icy_Olympus.Views.VenuePopup"
+             Title="VenuePopup"
+             BackgroundColor="#80000000"
+             CloseWhenBackgroundIsClicked="True">
+    <ScrollView HorizontalOptions="Center" VerticalOptions="End" Padding="0,0,0,55">
+        <Border HeightRequest="150"
+                BackgroundColor="White"
+                HorizontalOptions="Fill">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <VerticalStackLayout Spacing="3">
+                <Label 
+                    x:Name="Info"
+                    Text=""
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Button 
+                    Text="Rate"
+                    HorizontalOptions="Center"
+                    />
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+</mopups:PopupPage>

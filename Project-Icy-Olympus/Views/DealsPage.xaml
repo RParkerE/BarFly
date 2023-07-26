@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Project_Icy_Olympus.Models"
+             xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodels="clr-namespace:Project_Icy_Olympus.ViewModels"
+             x:DataType="viewmodels:DealsPageViewModel"
+             x:Class="Project_Icy_Olympus.Views.DealsPage"
+             Title="{Binding Title}">
+
+    <Grid
+        ColumnDefinitions="*,Auto"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+        <RefreshView Grid.ColumnSpan="2"
+                     Command="{Binding GetDealsCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView 
+                        ItemsSource="{Binding Venues}"
+                        SelectionMode="None"
+                        Grid.ColumnSpan="2">
+                <CollectionView.EmptyView>
+                    <Label Text="No Data To Show Currently" />
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Venue">
+                        <Grid Padding="10">
+                            <Frame Style="{StaticResource CardView}">
+                                <Grid Padding="0" ColumnDefinitions="125,*">
+                                    <Image Aspect="AspectFill" Source="{Binding images[1]}"
+                                        WidthRequest="125" />
+                                    <StackLayout
+                                        Grid.Column="1"
+                                        Padding="10"
+                                        VerticalOptions="End">
+                                        <xct:Expander Grid.Row="2"  >
+                                            <xct:Expander.Header>
+                                                <VerticalStackLayout>
+                                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding name}" />
+                                                    <Label Style="{StaticResource SmallLabel}" Text="{Binding address}" />
+                                                </VerticalStackLayout>
+                                            </xct:Expander.Header>
+
+                                            <VerticalStackLayout>
+                                                <Label Style="{StaticResource SmallLabel}" Text="{Binding deals.events.food_deals[0]}" />
+                                                <Label Style="{StaticResource SmallLabel}" Text="{Binding deals.events.drink_deals[0]}" />
+                                            </VerticalStackLayout>
+                                        </xct:Expander>
+                                    </StackLayout>
+                                    <!--<Image Aspect="AspectFill" Source="{Binding images[1]}"
+                                        HeightRequest="125"
+                                        WidthRequest="125" />
+                                        <StackLayout
+                                        Grid.Column="1"
+                                        Padding="10"
+                                        VerticalOptions="Center">
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding name}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding address}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding deals.events.food_deals[0]}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding deals.events.drink_deals[0]}" />
+                                        </StackLayout>-->
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"/>
+    </Grid>
+</ContentPage>

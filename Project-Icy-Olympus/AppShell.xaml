@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Project_Icy_Olympus.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Project_Icy_Olympus"
+    xmlns:views="clr-namespace:Project_Icy_Olympus.Views"
+    xmlns:models="clr-namespace:Project_Icy_Olympus.Models"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Shell.TabBarIsVisible="False"
+        Route="MainPage" />
+    
+    <ShellContent
+        Title="Sign Up"
+        ContentTemplate="{DataTemplate local:SignUpPage}"
+        Shell.TabBarIsVisible="False" 
+        Route="SignUpPage" />
+
+    <TabBar>
+        <ShellContent
+            Title="Profile"
+            Icon="{x:Static models:Icons.Profile}"
+            ContentTemplate="{DataTemplate views:ProfilePage}"
+            Route="ProfilePage" />
+        <ShellContent
+            Title="Deals"
+            Icon="{x:Static models:Icons.Deals}"
+            ContentTemplate="{DataTemplate views:DealsPage}"
+            Route="DealsPage" />
+        <ShellContent
+            Title="Map"
+            Icon="{x:Static models:Icons.Map}"
+            ContentTemplate="{DataTemplate views:MapPage}"
+            Route="MapPage" />
+    </TabBar>
+
+</Shell>
