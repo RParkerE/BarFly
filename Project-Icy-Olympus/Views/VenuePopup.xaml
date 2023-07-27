@@ -7,7 +7,7 @@
              BackgroundColor="#80000000"
              CloseWhenBackgroundIsClicked="True">
     <ScrollView HorizontalOptions="Center" VerticalOptions="End" Padding="0,0,0,55">
-        <Border HeightRequest="150"
+        <Border HeightRequest="200"
                 BackgroundColor="White"
                 HorizontalOptions="Fill">
             <Border.StrokeShape>
@@ -17,6 +17,7 @@
                 <Label 
                     x:Name="Info"
                     Text=""
+                    Margin="5"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
                 <Button 

@@ -79,6 +79,11 @@ namespace Project_Icy_Olympus.Models
         public long tropical_drink { get; set; }
         [FirestoreProperty()]
         public long whiskey_glass { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Games: {0}, Pool: {1}, Dancing: {2}, Pet Friendly: {3}, Live Music: {4}, Date Night: {5}, Strip Club: {6}, Bottle Service: {7}, LGBTQ+: {8}, Speakeasy: {9}, Smoking: {10}, Sports: {11}, Tiki: {12}, Cocktail: {13}", this.arcade, this.bikini, this.dancing_woman, this.dog, this.guitar, this.hearts, this.lips, this.popping_bottle, this.rainbow_flag, this.shush_face, this.smoke, this.sports, this.tropical_drink, this.whiskey_glass);
+        }
     }
 
     [FirestoreData()]
